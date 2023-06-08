@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhân Hào chửi thề</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Tiêu đề trang web -->
+    <h2>Âm thanh Nhân Hào chửi thề</h2>
+
+    <!-- 12 âm thanh chửi thề của nhân hào -->
+    <div class="mainbtn">
+        <button type="button" onclick="sound(0)" class="NhanHao">ĐĨ MẸ MÀY</button>
+        <button type="button" onclick="sound(1)" class="NhanHao">THẰNG CHÓ NGU</button>
+        <button type="button" onclick="sound(2)" class="NhanHao">ĐỤ MÁ MÀY</button>
+        <button type="button" onclick="sound(3)" class="NhanHao">MÁ ĐẺ RA CÁI ĐẦU CẰC TAO SƯỚNG HƠN</button>
+        <button type="button" onclick="sound(4)" class="NhanHao">ĐÉO BIẾT NÓI CC GÌ</button>
+        <button type="button" onclick="sound(5)" class="NhanHao">ĐÀN ÔNG NHƯ ĐÀN BÀ</button>
+        <button type="button" onclick="sound(6)" class="NhanHao">SỦA CC</button>
+        <button type="button" onclick="sound(7)" class="NhanHao">TAO VỀ TAO ĐM ĐM MÀY LUÔN</button>
+        <button type="button" onclick="sound(8)" class="NhanHao">ĐM NGU THÌ IM</button>
+        <button type="button" onclick="sound(9)" class="NhanHao">ÓC LOZ ĐĐMM</button>
+        <button type="button" onclick="sound(10)" class="NhanHao">NGU NHƯ CON CHÓ GHẺ</button>
+    </div>
+
+    <!-- Icon loa -->
+    <ion-icon name="volume-high-outline" class="volume"></ion-icon>
+
+    <!-- Javascript -->
+    <script>
+        // Danh sách file chửi thề của Hào
+        const words = [
+            'dimemayNhanHao.mp3',
+            'thangchongu.mp3',
+            'dmm.mp3',
+            'daucac.mp3',
+            'dbng.mp3',
+            'danongnhudanba.mp3',
+            'suacc.mp3',
+            'tvetdmmdmm.mp3',
+            'dmmimmemom.mp3',
+            'oclon.mp3',
+            'choghe.mp3'
+        ];
+        function sound(n) {
+            const audio = new Audio(words[n]);
+
+            var dur = 0;
+            audio.addEventListener("loadedmetadata", function () {
+                // in ra độ dài âm thanh
+                dur = audio.duration;
+
+                // set a timeout to hide the icon element after 1 second
+                setTimeout(function () {
+                    icon.style.display = "none";
+                    // console.log(dur * 1000);
+                }, dur * 1000);
+            });
+
+            audio.play();
+
+            // get the icon element
+            var icon = document.querySelector(".volume");
+            // show the icon element
+            icon.style.display = "block";
+        }
+
+
+        console.log('Được phát triển bởi Fmack (Hoàng Phúc 12A1 THPT Nguyễn Trãi, Bình Dương)')
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
