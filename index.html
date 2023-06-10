@@ -5,13 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhân Hào chửi thề</title>
+    <title>Nhân Hào</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Ảnh đại diện -->
+    <!-- <img src="https://scontent.fsgn16-1.fna.fbcdn.net/v/t1.15752-9/242079957_250318190335722_5407018003519150545_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=ZD-R-u26lOoAX9cmsy2&_nc_ht=scontent.fsgn16-1.fna&oh=03_AdSVZzc4uFabx__yR5_6EjhVgIQEkVactwI0ZGRig1xQqQ&oe=64AB4EAD"
+        class="NH"> -->
+
+    <!-- Thẻ div để chứa khung chứa ảnh -->
+    <div id="slideshow">
+        <!-- Thẻ img để chứa các ảnh -->
+        <img src="https://scontent.fsgn16-1.fna.fbcdn.net/v/t1.15752-9/346113386_574167764768407_7857508379456505155_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=Gk6C801btHMAX-2M8Qo&_nc_ht=scontent.fsgn16-1.fna&oh=03_AdR5svkyWqJEwqhGgvbXO9BXZSWOXGXoOUjIWKSis0n-Mg&oe=64AB76DB"
+            class="current"> <!-- Đặt class là current cho ảnh đầu tiên -->
+        <img
+            src="https://scontent.fsgn16-1.fna.fbcdn.net/v/t1.15752-9/349030773_213667728190736_344911329749514547_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=v_RqzLcp4g8AX9cAb_r&_nc_ht=scontent.fsgn16-1.fna&oh=03_AdSHPGA0_beD0ssB5z0_CvhNi6Q9XcnbdSjn_VqGLXF6rg&oe=64AB5888">
+        <img
+            src="https://scontent.fsgn16-1.fna.fbcdn.net/v/t1.15752-9/327364103_861912868428428_1601640627493608996_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=3DJLZE6wahgAX_YCpbH&_nc_ht=scontent.fsgn16-1.fna&oh=03_AdS2JenWNUFqU6joAAGxqQ3xU4bG4GalN1Wrjdpaj1lgnQ&oe=64AB5E01">
+        <img
+            src="https://scontent.fsgn16-1.fna.fbcdn.net/v/t1.15752-9/242079957_250318190335722_5407018003519150545_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=ZD-R-u26lOoAX9cmsy2&_nc_ht=scontent.fsgn16-1.fna&oh=03_AdSVZzc4uFabx__yR5_6EjhVgIQEkVactwI0ZGRig1xQqQ&oe=64AB4EAD">
+    </div>
+
     <!-- Tiêu đề trang web -->
-    <h2>Âm thanh Nhân Hào chửi thề</h2>
+    <h2>Bộ âm thanh của Huỳnh Nhân Hào</h2>
+
+    <!-- Số âm thanh -->
+    <p class="nums"></p>
 
     <!-- 12 âm thanh chửi thề của nhân hào -->
     <div class="mainbtn">
@@ -26,10 +46,24 @@
         <button type="button" onclick="sound(8)" class="NhanHao">ĐM NGU THÌ IM</button>
         <button type="button" onclick="sound(9)" class="NhanHao">ÓC LOZ ĐĐMM</button>
         <button type="button" onclick="sound(10)" class="NhanHao">NGU NHƯ CON CHÓ GHẺ</button>
+        <button type="button" onclick="sound(11)" class="NhanHao">HÀO HÁT "BẢO ƠI Ở LẠI"</button>
+        <button type="button" onclick="sound(12)" class="NhanHao">HÀO CƯỜI HAHA (CƯỜI ỈA)</button>
+        <button type="button" onclick="sound(13)" class="NhanHao">HÀO CƯỜI HAHA (CƯỜI KHINH BỈ)</button>
     </div>
 
-    <!-- Icon loa -->
-    <ion-icon name="volume-high-outline" class="volume"></ion-icon>
+    <!-- Tải bộ âm thanh -->
+    <button type="button" class="down" onclick="window.location.href='https://drive.google.com/drive/folders/1BXwHFPJZF2n9HVxkCFIeWHsuEdIakhaO'">
+        Tải bộ âm thanh của Hào tại đây
+        <ion-icon name="download-outline"></ion-icon>
+    </button>
+
+    <!-- Hộp thoại thông báo -->
+    <div class="notice" onclick="scrollToBottom()">
+        <p>Mới: Đã cập nhật thêm 3 âm thanh của Huỳnh Nhân Hào !! (Click vào đây để xem)</p>
+    </div>
+
+    <div class="none"></div>
+
 
     <!-- Javascript -->
     <script>
@@ -45,33 +79,85 @@
             'tvetdmmdmm.mp3',
             'dmmimmemom.mp3',
             'oclon.mp3',
-            'choghe.mp3'
+            'choghe.mp3',
+            'baoolai.mp3',
+            'hahahaha.mp3',
+            'hahaha.mp3'
         ];
+        var stop = 0;
         function sound(n) {
+
             const audio = new Audio(words[n]);
 
-            var dur = 0;
-            audio.addEventListener("loadedmetadata", function () {
-                // in ra độ dài âm thanh
-                dur = audio.duration;
-
-                // set a timeout to hide the icon element after 1 second
-                setTimeout(function () {
-                    icon.style.display = "none";
-                    // console.log(dur * 1000);
-                }, dur * 1000);
-            });
-
             audio.play();
-
-            // get the icon element
-            var icon = document.querySelector(".volume");
-            // show the icon element
-            icon.style.display = "block";
         }
 
+        // Thông báo số âm thanh
+        document.querySelector('.nums').innerHTML = `${words.length} âm thanh`
 
-        console.log('Được phát triển bởi Fmack (Hoàng Phúc 12A1 THPT Nguyễn Trãi, Bình Dương)')
+        // Hàm để đóng hộp thoại
+        function closeNotice() {
+
+            // Lấy đối tượng hộp thoại theo id
+            let dialog = document.querySelector('.notice');
+
+            // Sử dụng thuộc tính style.display để không hiển thị hộp thoại
+            dialog.style.display = "none";
+        }
+        // Lắng nghe sự kiện click của trang web
+        window.addEventListener("click", function (event) {
+
+            // Lấy đối tượng hộp thoại theo id
+            let dialog = document.querySelector('.notice');
+
+            // Kiểm tra xem vị trí click có nằm trong hộp thoại hay không
+            if (!dialog.contains(event.target)) {
+                // Nếu không nằm trong hộp thoại, gọi hàm đóng hộp thoại
+                closeNotice();
+            }
+        });
+
+        // Hàm để cuộn trang xuống vị trí mục cuối cùng
+        function scrollToBottom() {
+
+            // Lấy đối tượng mục cuối cùng theo id
+            let lastItem = document.querySelectorAll('.NhanHao')[words.length - 2];
+
+            lastItem.scrollIntoView({ behavior: "smooth" });
+
+            setTimeout(function () {
+                closeNotice();
+            }, 500);
+        }
+
+        // Hàm để chuyển sang ảnh tiếp theo
+        function nextImage() {
+
+            // Lấy đối tượng khung chứa theo id
+            let slideshow = document.getElementById("slideshow");
+
+            // Lấy đối tượng ảnh hiện tại theo class
+            let current = slideshow.querySelector(".current");
+
+            // Xóa class current của ảnh hiện tại
+            current.classList.remove("current");
+
+            // Lấy đối tượng ảnh tiếp theo
+            let next = current.nextElementSibling;
+
+            // Nếu không có ảnh tiếp theo, quay lại ảnh đầu tiên
+            if (!next) {
+                next = slideshow.firstElementChild;
+            }
+
+            // Thêm class current cho ảnh tiếp theo
+            next.classList.add("current");
+        }
+
+        // Sử dụng hàm setInterval để gọi hàm nextImage mỗi 3 giây
+        setInterval(nextImage, 3000);
+
+        console.log('Được phát triển bởi Fmack (Hoàng Phúc 12A1 THPT Nguyễn Trãi, Bình Dương), 5/6/2023')
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

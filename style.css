@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@600&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@600&family=Open+Sans:wght@300;400&display=swap');
 
 * {
     margin: 0;
@@ -8,68 +8,159 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+::-webkit-scrollbar {
+    display: none;
+    /* ẩn tất cả các thanh cuộn */
+}
+
 body {
-    background: url('https://scontent.xx.fbcdn.net/v/t1.15752-9/349030773_213667728190736_344911329749514547_n.jpg?stp=dst-jpg_p403x403&_nc_cat=109&ccb=1-7&_nc_sid=aee45a&_nc_ohc=v_RqzLcp4g8AX8Fkmhw&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdS9NWK_QbiWb-Oyx65FjYBuBEseT-NXSJBF5h9RpCvF8Q&oe=64A8EDC8');
+    /* background: url('https://scontent.xx.fbcdn.net/v/t1.15752-9/349030773_213667728190736_344911329749514547_n.jpg?stp=dst-jpg_p403x403&_nc_cat=109&ccb=1-7&_nc_sid=aee45a&_nc_ohc=v_RqzLcp4g8AX8Fkmhw&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdS9NWK_QbiWb-Oyx65FjYBuBEseT-NXSJBF5h9RpCvF8Q&oe=64A8EDC8'); */
+    background-color: rgb(37, 0, 48);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: column;
+    position: relative;
+}
+
+/* .NH {
+    width: 300px;
+    height: 300px;
+    margin-top: 100px;
+    border-radius: 10px;
+} */
+/* Định dạng cho khung chứa ảnh */
+#slideshow {
+    margin-top: 100px;
+    position: relative;
+    /* Vị trí tương đối */
+    width: 300px;
+    /* Chiều rộng 500px */
+    height: 300px;
+    /* Chiều cao 300px */
+}
+
+/* Định dạng cho các ảnh */
+#slideshow img {
+    position: absolute;
+    /* Vị trí tuyệt đối */
+    width: 100%;
+    /* Chiều rộng bằng khung chứa */
+    height: 100%;
+    /* Chiều cao bằng khung chứa */
+    opacity: 0;
+    /* Độ trong suốt bằng 0 (ẩn) */
+    transition: opacity 2s;
+    /*Hiệu ứng chuyển đổi độ trong suốt trong 1 giây */
+    border-radius: 10px;
+
+}
+
+/* Định dạng cho ảnh hiện tại */
+#slideshow img.current {
+    opacity: 1;
+    /* Độ trong suốt bằng 1 (hiển thị) */
 }
 
 h2 {
     font-family: 'Maven Pro', sans-serif;
     color: white;
     text-align: center;
-    margin: 70px;
-    font-size: 5vw;
+    margin: 70px 0 10px 0;
+    font-size: 4vw;
+}
+
+.nums {
+    color: white;
+    font-family: 'Maven Pro', sans-serif;
+    margin: 0 0 50px 0;
+    font-size: 20px;
 }
 
 .mainbtn {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    flex-direction: column;
     flex-wrap: wrap;
-    /* flex-direction: column; */
-    /* gap: 50px; */
-    /* border: 2px solid white; */
-    margin: 20px;
-    /* background-color: rgba(255, 255, 255, 0.397); */
-    border-radius: 10px;
+    justify-content: space-evenly;
     margin: 0 10px 0 10px;
+    width: 100%;
 }
 
 .NhanHao {
     cursor: pointer;
     font-family: 'Maven Pro', sans-serif;
 
-    width: 300px;
+    width: 100%;
     height: 70px;
 
     appearance: none;
-    border: 2px solid white;
-    background: rgba(255, 255, 255, 0.315);
+    border-top: 1px solid white;
+    border-left: none;
+    border-right: none;
+    background: none;
 
     color: white;
-    border-radius: 10px;
-    text-align: center;
-    padding: 5px;
+    /* border-radius: 5px; */
+    text-align: left;
+    padding: 10px;
     font-size: 15px;
 
-    margin: 20px 0 20px 0;
-}
-.NhanHao:active {
-    background: rgba(255, 255, 255, 0.541);
+    /* margin: 5px 0 5px 0; */
 }
 
-.volume {
+.NhanHao:active {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.NhanHao:last-child {
+    border-bottom: 1px solid white;
+}
+
+.notice {
+    cursor: pointer;
+    width: 300px;
     position: fixed;
-    top: 5px;
-    left: 5px;
-    font-size: 40px;
+    top: 10px;
+    left: 10px;
+    background-color: rgb(65, 65, 65);
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid white;
+}
+
+.notice p {
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 14px;
     color: white;
-    display: none;
+}
+
+.down {
+    cursor: pointer;
+    padding: 10px;
+    font-family: 'Maven Pro', sans-serif;
+    color: white;
+    margin: 50px;
+    appearance: none;
+    border: 5px solid rgb(1, 255, 56);
+    border-radius: 10px;
+    background: none;
+    width: 50%;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.down:active {
+    background: rgb(56, 255, 99);
+}
+
+ion-icon {
+    width: 50px;
+    height: 50px;
 }
