@@ -35,32 +35,59 @@
 
     <!-- 12 âm thanh chửi thề của nhân hào -->
     <div class="mainbtn">
-        <button type="button" onclick="sound(0)" class="NhanHao">ĐĨ MẸ MÀY</button>
-        <button type="button" onclick="sound(1)" class="NhanHao">THẰNG CHÓ NGU</button>
-        <button type="button" onclick="sound(2)" class="NhanHao">ĐỤ MÁ MÀY</button>
-        <button type="button" onclick="sound(3)" class="NhanHao">MÁ ĐẺ RA CÁI ĐẦU CẰC TAO SƯỚNG HƠN</button>
-        <button type="button" onclick="sound(4)" class="NhanHao">ĐÉO BIẾT NÓI CC GÌ</button>
-        <button type="button" onclick="sound(5)" class="NhanHao">ĐÀN ÔNG NHƯ ĐÀN BÀ</button>
-        <button type="button" onclick="sound(6)" class="NhanHao">SỦA CC</button>
-        <button type="button" onclick="sound(7)" class="NhanHao">TAO VỀ TAO ĐM ĐM MÀY LUÔN</button>
-        <button type="button" onclick="sound(8)" class="NhanHao">ĐM NGU THÌ IM</button>
-        <button type="button" onclick="sound(9)" class="NhanHao">ÓC LOZ ĐĐMM</button>
-        <button type="button" onclick="sound(10)" class="NhanHao">NGU NHƯ CON CHÓ GHẺ</button>
-        <button type="button" onclick="sound(11)" class="NhanHao">HÀO HÁT "BẢO ƠI Ở LẠI"</button>
-        <button type="button" onclick="sound(12)" class="NhanHao">HÀO CƯỜI HAHA (CƯỜI ỈA)</button>
-        <button type="button" onclick="sound(13)" class="NhanHao">HÀO CƯỜI HAHA (CƯỜI KHINH BỈ)</button>
+        <button type="button" onclick="sound(0)" class="NhanHao">ÂM THANH 1</button>
+        <button type="button" onclick="sound(1)" class="NhanHao">ÂM THANH 2</button>
+        <button type="button" onclick="sound(2)" class="NhanHao">ÂM THANH 3</button>
+        <button type="button" onclick="sound(3)" class="NhanHao">ÂM THANH 4</button>
+        <button type="button" onclick="sound(4)" class="NhanHao">ÂM THANH 5</button>
+        <button type="button" onclick="sound(5)" class="NhanHao">ÂM THANH 6</button>
+        <button type="button" onclick="sound(6)" class="NhanHao">ÂM THANH 7</button>
+        <button type="button" onclick="sound(7)" class="NhanHao">ÂM THANH 8</button>
+        <button type="button" onclick="sound(8)" class="NhanHao">ÂM THANH 9</button>
+        <button type="button" onclick="sound(9)" class="NhanHao">ÂM THANH 10</button>
+        <button type="button" onclick="sound(10)" class="NhanHao">ÂM THANH 11</button>
+        <button type="button" onclick="sound(11)" class="NhanHao">ÂM THANH 12 (MỚI)</button>
+        <button type="button" onclick="sound(12)" class="NhanHao">ÂM THANH 13 (MỚI)</button>
+        <button type="button" onclick="sound(13)" class="NhanHao">ÂM THANH 14 (MỚI)</button>
+    </div>
+
+    <ion-icon class="info" name="information-circle-outline"></ion-icon>
+    <div class="darktheme">
+        <div class="info-dialog">
+            <p>Âm thanh 1: Đĩ mẹ mày</p>
+            <p>Âm thanh 2: Thằng chó ngu</p>
+            <p>Âm thanh 3: Đ* má mày</p>
+            <p>Âm thanh 4: Má đẻ ra cái đầu c*c sướng hơn</p>
+            <p>Âm thanh 5: Thằng nhóc đéo biết nói con c*c gì hả</p>
+            <p>Âm thanh 6: Đu má đàn ông như tính đàn bà</p>
+            <p>Âm thanh 7: Sủa con c*c</p>
+            <p>Âm thanh 8: Tao về tao đ* má đĩ mẹ mày luôn</p>
+            <p>Âm thanh 9: Đ* má mày ngu thì mày im mẹ mày đi</p>
+            <p>Âm thanh 10: Óc l*n đ* con đĩ mẹ mày</p>
+            <p>Âm thanh 11: Ngu như con chó ghẻ</p>
+            <p>Âm thanh 12: Hào hát bài "Bảo ơi ở lại"</p>
+            <p>Âm thanh 13: Hào cười ỉa</p>
+            <p>Âm thanh 14: Hào cười kinh bỉ</p>
+        </div>
     </div>
 
     <!-- Tải bộ âm thanh -->
-    <button type="button" class="down" onclick="window.location.href='https://drive.google.com/drive/folders/1BXwHFPJZF2n9HVxkCFIeWHsuEdIakhaO'">
+    <button type="button" class="down"
+        onclick="window.location.href='https://drive.google.com/drive/folders/1BXwHFPJZF2n9HVxkCFIeWHsuEdIakhaO'">
         Tải bộ âm thanh của Hào tại đây
-        <ion-icon name="download-outline"></ion-icon>
+        <ion-icon name="download-outline" class="downicon"></ion-icon>
     </button>
 
     <!-- Hộp thoại thông báo -->
-    <div class="notice" onclick="scrollToBottom()">
-        <p>Mới: Đã cập nhật thêm 3 âm thanh của Huỳnh Nhân Hào !! (Click vào đây để xem)</p>
+    <div class="noticemain">
+        <div class="notice">
+            <p><ion-icon name="warning-outline" style="scale: 1.2; margin-right: 4px;"></ion-icon>Lưu ý: Cân nhắc khi xem gần người lớn. Hãy vặn nhỏ âm thanh hoặc tốt nhất là đeo tai nghe !</p>
+        </div>
+        <div class="notice">
+            <p>Mới: Đã cập nhật thêm 3 âm thanh của Huỳnh Nhân Hào !!</p>
+        </div>
     </div>
+
 
     <div class="none"></div>
 
@@ -99,7 +126,7 @@
         function closeNotice() {
 
             // Lấy đối tượng hộp thoại theo id
-            let dialog = document.querySelector('.notice');
+            let dialog = document.querySelector('.noticemain');
 
             // Sử dụng thuộc tính style.display để không hiển thị hộp thoại
             dialog.style.display = "none";
@@ -117,11 +144,37 @@
             }
         });
 
+        // Thông tin chi tiết âm thanh
+        // Lấy các phần tử từ HTML
+        var modalButton = document.querySelector('.info');
+        var modalBackdrop = document.querySelector('.darktheme');
+        var modalDialog = document.querySelector('.info-dialog');
+
+        // Hàm mở hộp thoại
+        function openModal() {
+            modalBackdrop.style.display = "flex";
+            modalDialog.style.display = "block";
+        }
+
+        // Hàm đóng hộp thoại
+        function closeModal() {
+            modalBackdrop.style.display = "none";
+            modalDialog.style.display = "none";
+        }
+
+        // Thêm sự kiện click cho nút mở hộp thoại
+        modalButton.addEventListener("click", openModal);
+
+        // Thêm sự kiện click cho nền tối để đóng hộp thoại
+        modalBackdrop.addEventListener("click", closeModal);
+
+
+
         // Hàm để cuộn trang xuống vị trí mục cuối cùng
         function scrollToBottom() {
 
             // Lấy đối tượng mục cuối cùng theo id
-            let lastItem = document.querySelectorAll('.NhanHao')[words.length - 2];
+            let lastItem = document.querySelectorAll('.NhanHao')[words.length - 3];
 
             lastItem.scrollIntoView({ behavior: "smooth" });
 
