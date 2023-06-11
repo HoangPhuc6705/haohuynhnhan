@@ -131,6 +131,21 @@ h2 {
     background-size: contain;
 }
 
+.NhanHao p {
+    position: absolute;
+    right: 70px;
+}
+
+/* Kí hiệu cảnh báo ngôn ngữ tục tiểu */
+.NhanHao ion-icon {
+    scale: 1.4;
+    position: absolute;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    /* border: 2px solid white; */
+    color: yellow;
+}
 .info {
     cursor: pointer;
     color: white;
@@ -182,16 +197,54 @@ h2 {
     width: 300px;
     background-color: rgb(65, 65, 65);
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 40px 10px 10px;
     border: 2px solid white;
+    display: flex;
+    position: relative;
 }
 
 .notice p {
     font-family: 'Maven Pro', sans-serif;
     font-size: 14px;
     color: white;
+    text-align: justify;
 }
 
+/* Đóng thông báo */
+.close {
+    cursor: pointer;
+    position: absolute;
+    color: white;
+    width: 25px;
+    height: 25px;
+    top: 5px;
+    right: 5px;
+    display: none;
+}
+
+@media (hover: hover) {
+    .notice:hover .close {
+      display: block;
+    }
+  }
+
+  @media (hover: none) {
+    .close {
+      display: block;
+    }
+  }
+
+/* Dành riêng cho mục lưu ý */
+.noticemain .notice:nth-child(1) {
+    border: 2px solid yellow;
+}
+
+.noticemain .notice:nth-child(1) p:nth-child(1) {
+    color: yellow;
+}
+
+
+/* Nút tải về */
 .down {
     cursor: pointer;
     padding: 10px;
