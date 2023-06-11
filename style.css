@@ -107,7 +107,7 @@ h2 {
     /* border-radius: 5px; */
     text-align: left;
     padding: 10px;
-    font-size: 15px;
+    font-size: 17px;
 
     display: flex;
     align-items: center;
@@ -136,6 +136,34 @@ h2 {
     right: 70px;
 }
 
+/* Thanh chạy âm thanh */
+.NhanHao div {
+    z-index: -1;
+    width: 0%;
+    height: 100%;
+    background-color: rgb(103, 0, 134);
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* animation: fill 2s; */
+}
+
+@keyframes fill {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.animated {
+    animation-name: fill;
+    animation-timing-function: linear;
+    /* use the defined animation */
+}
+
 /* Kí hiệu cảnh báo ngôn ngữ tục tiểu */
 .NhanHao ion-icon {
     scale: 1.4;
@@ -146,6 +174,7 @@ h2 {
     /* border: 2px solid white; */
     color: yellow;
 }
+
 .info {
     cursor: pointer;
     color: white;
@@ -171,6 +200,7 @@ h2 {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 .info-dialog {
     width: 300px;
     height: 300px;
@@ -195,7 +225,7 @@ h2 {
 .notice {
     cursor: context-menu;
     width: 300px;
-    background-color: rgb(65, 65, 65);
+    background-color: rgb(90, 90, 90);
     border-radius: 5px;
     padding: 10px 40px 10px 10px;
     border: 2px solid white;
@@ -207,7 +237,6 @@ h2 {
     font-family: 'Maven Pro', sans-serif;
     font-size: 14px;
     color: white;
-    text-align: justify;
 }
 
 /* Đóng thông báo */
@@ -222,17 +251,37 @@ h2 {
     display: none;
 }
 
+/* Chú thích kí hiệu */
+.notice:nth-child(2) {
+    font-family: 'Maven Pro', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.notice:nth-child(2) div {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.notice:nth-child(2) div ion-icon {
+    scale: 1.4;
+}
+
 @media (hover: hover) {
     .notice:hover .close {
-      display: block;
+        display: block;
     }
-  }
+}
 
-  @media (hover: none) {
+@media (hover: none) {
     .close {
-      display: block;
+        display: block;
     }
-  }
+}
 
 /* Dành riêng cho mục lưu ý */
 .noticemain .notice:nth-child(1) {
@@ -252,10 +301,10 @@ h2 {
     color: white;
     margin: 50px;
     appearance: none;
-    border: 5px solid rgb(1, 255, 56);
+    border: 5px solid rgb(0, 255, 0);
     border-radius: 10px;
     background: none;
-    width: 50%;
+    width: 30%;
     font-size: 20px;
     display: flex;
     flex-direction: column;
@@ -265,7 +314,7 @@ h2 {
 }
 
 .down:hover {
-    background: rgb(56, 255, 99);
+    background: rgb(0, 255, 0);
 }
 
 
@@ -273,13 +322,15 @@ h2 {
     .down:hover {
         background: none;
     }
+
     .down:active {
-        background: rgb(56, 255, 99);
+        background: rgb(0, 255, 0);
     }
 
     .NhanHao:hover {
         background: none;
     }
+
     .NhanHao:active {
         background: rgba(255, 255, 255, 0.3);
     }
@@ -287,13 +338,49 @@ h2 {
     .info:hover {
         color: white;
     }
+
     .info:active {
         color: rgb(192, 192, 192);
     }
-        
 }
 
 .downicon {
     width: 50px;
     height: 50px;
+}
+
+/* Full Screen */
+.fullscrhover {
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(139, 139, 139);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bi-fullscreen {
+    color: white;
+    width: 60%;
+    height: 60%;
+}
+
+/* Định dạng riêng cho điện thoại */
+@media screen and (max-width: 480px) {
+    h2 {
+        font-size: 7vw;
+    }
+
+    .down {
+        width: 50%;
+    }
+
+    .notice {
+        width: 250px;
+    }
 }
