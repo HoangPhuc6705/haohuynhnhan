@@ -1,5 +1,5 @@
 // Tắt thông báo
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 2; i++) {
     document.querySelectorAll('.close')[i].onclick = function() {
         document.querySelectorAll('.notice')[i].style.display = 'none';
     }
